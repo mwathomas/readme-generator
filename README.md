@@ -14,6 +14,9 @@ Make sure you have the utils folder. Install inquirer and fs npms. Type "node in
 
 It is used for developers to create READMEs without spending too much time.
 
+Video Demo:
+[a link] https://watch.screencastify.com/v/8dcwf4fminA4uP8jJn6Z
+
 ## Tests
 
 No
