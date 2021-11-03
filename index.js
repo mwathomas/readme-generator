@@ -10,57 +10,53 @@ const questions = [
     message: "What is the title of your project?",
     name: "title",
   },
-  //   {
-  //     type: "input",
-  //     name: "description",
-  //     message: "Write a brief description of your project: ",
-  //   },
-  //     {
-  //       type: "input",
-  //       name: "installation",
-  //       message: "Describe the installation process if any: ",
-  //     },
-  //     {
-  //       type: "input",
-  //       name: "usage",
-  //       message: "What is this project usage for?",
-  //     },
-  //   {
-  //     type: "list",
-  //     name: "license",
-  //     message: "Chose the appropriate license for this project: ",
-  //     choices: ["Apache", "Academic", "GNU", "ISC", "MIT", "Mozilla", "Open"],
-  //   },
-  //   //   {
-  //     type: "input",
-  //     name: "contributing",
-  //     message: "Who are the contributors of this projects?",
-  //   },
-  //   {
-  //     type: "input",
-  //     name: "tests",
-  //     message: "Is there a test included?",
-  //   },
-  //   {
-  //     type: "input",
-  //     name: "questions",
-  //     message: "What do I do if I have an issue? ",
-  //   },
-  //   {
-  //     type: "input",
-  //     name: "username",
-  //     message: "Please enter your GitHub username: ",
-  //   },
-  //   {
-  //     type: "input",
-  //     name: "email",
-  //     message: "Please enter your email: ",
-  //   },
+  {
+    type: "input",
+    message: "Write a description of your project: ",
+    name: "description",
+  },
+  {
+    type: "input",
+    message: "How do you install your project?: ",
+    name: "installation",
+  },
+  {
+    type: "input",
+    message: "What is this project used for?",
+    name: "usage",
+  },
+  {
+    type: "list",
+    message: "Was there a license for this project?: ",
+    choices: ["Apache", "GNU", "MIT", "Mozilla", "ISC", "Open"],
+    name: "license",
+  },
+  {
+    type: "input",
+    message: "Who contributed to this project?",
+    name: "collaborators",
+  },
+  {
+    type: "input",
+    message: "Is there a test?",
+    name: "test",
+  },
+  {
+    type: "input",
+    message: "Enter your GitHub username: ",
+    name: "username",
+  },
+  {
+    type: "input",
+    message: "Enter your email: ",
+    name: "email",
+  },
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, function (err) {
+  var readme = generateMarkdown(data);
+  fs.writeFile(fileName, readme, function (err) {
     console.log(err);
     console.log("Your README is being generated!");
   });
@@ -68,8 +64,8 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-  inquirer.prompt(questions).then((answers) => {
-    return writeToFile("newREADME.md", generateMarkdown(answers));
+  inquirer.prompt(questions).then(function (answers) {
+    writeToFile("newREADME.md", answers);
   });
 }
 
