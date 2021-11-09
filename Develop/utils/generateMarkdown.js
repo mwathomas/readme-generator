@@ -53,6 +53,14 @@ function generateMarkdown(data) {
 
 ![License](${licenseBadge}
 
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Tests](#tests)
+- [Questions](#questions)
+
 ## Description
 
 ${data.description}
